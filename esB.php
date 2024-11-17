@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manipolazione orario</title>
+    <nav>
+        <a href="index.html">Home</a>
+        <br>
+        <br>
+    </nav>
 </head>
 <body>
     <?php

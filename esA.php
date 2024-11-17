@@ -19,6 +19,12 @@
             background-color: #ddd;
         }
     </style>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <br>
+        <br>
+    </nav>
 </head>
 <body>
     <table>
