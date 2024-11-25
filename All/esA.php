@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabella pitagorica</title>
-
+    <link rel="stylesheet" href="style.css">
     <style>
         table {
             width: 50%;
@@ -58,5 +58,10 @@
         </tbody>
     </table>
  
+    <h3>Tabella pitagorica</h3>
+    <p>In questo esercizio ho creato una tabella pitagorica: ho creato una tabella con html usando i tag della famiglia "table". Per popolare la tabella ho usato dei cicli for annidati, quindi ho trattato il tutto come una matrice bidimensionale. </p>
 </body>
+<footer>
+        Questo progetto si chiama Quaderno di informatica e permette di visualizzare i vari esercizi svolti con php e html
+    </footer>
 </html>
