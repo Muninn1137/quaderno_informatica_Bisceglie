@@ -12,28 +12,51 @@
 <body>
 <h3>Accesso a pagina riservata</h3>
 
-    <form action="login2.php" method="post">
-        <label for="username"><b>Username</b></label>
-        <input type="text" name="username" placeholder="Inserisci il nome utente" /><br />
-        <label for="password"><b>Password</b></label>
-        <input type="password" name="password" placeholder="Inserisci la password" /><br />
-        <input name="submit" type="submit" value="Invia" />
-    </form>
+<form action="login2.php" method="post">
+    <label for="username"><b>Username</b></label>
+    <input type="text" id="username" name="username" placeholder="Inserisci il nome utente" /><br />
+    
+    <label for="password"><b>Password</b></label>
+    <input type="password" id="password" name="password" placeholder="Inserisci la password" /><br />
+    
+    <input name="submit" type="submit" value="Invia" />
+</form>
+
 
 <h3>Controllo credenziali</h3>
 <?php
-    // Fixing the PHP variables and syntax
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $user = $_POST["username"];
-        $pwd = $_POST["password"];
+    // Array paralleli per username e password
+    $usernames = ["Admin", "User1", "Guest"];
+    $passwords = ["Password2", "12345", "guest123"];
 
-        if ($user != "Admin" || $pwd != "Password2") {
-            echo "Attenzione! Nome utente o password sbagliati. Accesso negato.";
+    // Controlla se il metodo è POST
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $user = $_POST["username"]; // Dati forniti dall'utente
+        $pwd = $_POST["password"];
+        
+        // Variabile di controllo per l'accesso
+        $accessGranted = false;
+
+        // Ciclo per verificare username e password
+        for ($i = 0; $i < count($usernames); $i++) {
+            // Verifica che username e password corrispondano
+            if ($user === $usernames[$i] && $pwd === $passwords[$i]) {
+                $accessGranted = true; // Abilita l'accesso
+                break; // Esci dal ciclo per efficienza
+            }
+        }
+
+        // Output in base al risultato del controllo
+        if ($accessGranted) {
+            echo "<h4>Benvenuto nell'area riservata del sito, $user!</h4>";
         } else {
-            echo "<h4>Benvenuto nell'area riservata del sito</h4>";
+            echo "<p style='color: red;'>Attenzione! Nome utente o password sbagliati. Accesso negato.</p>";
         }
     }
 ?>
+
+
+
 
 <h3>Login forum</h3>
 <p>In questo esercizio ho utilizzato i tag per i forum e una post per controllare due stringhe 'username' e 'password' se fossero corrette con ciò che viene inserito dall'utente, il tutto sulla stessa pagina.</p>

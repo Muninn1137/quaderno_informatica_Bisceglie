@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forme normali</title>
+</head>
+
+<nav>
+    <a href="/quaderno_informatica_Bisceglie/All/index.html">Home</a>
+</nav>
+
+<body>
+    <h1>FORME NORMALI</h1>
+    <p>La normalizzazione è un procedimento che, allo scopo di evitare le anomalie, porta a decomporre una tabella in più tabelle in modo che:
+        non comporti perdita informativa ⇒ garantisce la ricostruzione delle informazioni originarie;
+        conservi le dipendenze ⇒ mantiene i vincoli di integrità originari.</p>
+    
+    <h2>Prima forma normale</h2>
+    <p>Una tabella è in prima forma normale (1NF) se tutti i suoi attributi hanno domini atomici (cioè sono valori elementari non ulteriormente scomponibili) ed esiste per 
+        essa una chiave primaria.</p>
+
+        <table border="1">
+            <thead>
+              <tr>
+                <th>ID_Studente</th>
+                <th>Nome_Studente</th>
+                <th>Corsi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mario Rossi</td>
+                <td>Matematica</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Anna Bianchi</td>
+                <td>Chimica</td>
+              </tr>
+            </tbody>
+          </table>
+
+        <br>
+        <p>La tabella qui sopra non e' in prima forma normale, la tabella sotto presenta la soluzione:</p>
+
+          <table border="1">
+            <thead>
+              <tr>
+                <th>ID_Studente</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Corsi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mario</td>
+                <td>Rossi</td>
+                <td>Matematica</td>
+              </tr>
+              
+              <tr>
+                <td>2</td>
+                <td>Anna</td>
+                <td>Bianchi</td>
+                <td>Chimica</td>
+              </tr>
+            </tbody>
+          </table>
+    
+    
+    <h2>Seconda forma normale</h2>
+    <p>Una tabella T è in seconda forma normale (2NF) se è in 1NF e non esistono, tra i possibili insiemi di attributi, dipendenze funzionali parziali, ma si hanno solo dipendenze
+         funzionali complete: ogni attributo A non primo di T dipende funzionalmente in modo completo dalla chiave primaria di T.
+    </p>
+
+    <table border="1">
+        <thead>
+          <tr>
+            <th>ID_Studente</th>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Corsi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mario</td>
+            <td>Rossi</td>
+            <td>Matematica</td>
+          </tr>
+          
+          <tr>
+            <td>2</td>
+            <td>Anna</td>
+            <td>Bianchi</td>
+            <td>Chimica</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <p>Per rispettare la seconda forma normale andiamo a separare la tabella in due</p>
+
+      <table border="1">
+        <thead>
+          <tr>
+            <th>ID_Studente</th>
+            <th>Nome</th>
+            <th>Cognome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mario</td>
+            <td>Rossi</td>
+          </tr>
+          
+          <tr>
+            <td>2</td>
+            <td>Anna</td>
+            <td>Bianchi</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>ID_Studente</th>
+            <th>Corso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Matematica</td>
+          </tr>
+          
+          <tr>
+            <td>2</td>
+            <td>Chimica</td>
+          </tr>
+        </tbody>
+      </table>
+
+    <h2>Terza forma normale</h2>
+    <p>Una tabella T è in terza forma normale (3NF) quando è in 2NF (cioè non si hanno dipendenze funzionali parziali) e non esistono attributi non primi dipendenti transitivamente 
+        dalla chiave primaria.</p>
+
+        <table border="1">
+            <thead>
+              <tr>
+                <th>ID_Studente</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Classe</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mario</td>
+                <td>Rossi</td>
+                <td>5a</td>
+              </tr>
+              
+              <tr>
+                <td>2</td>
+                <td>Anna</td>
+                <td>Bianchi</td>
+                <td>5b</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Questa tabella non e' in terza forma normale per la dipendenza trasitiva delle classi quindi:</p>
+
+          <br>
+          <table border="1">
+            <thead>
+              <tr>
+                <th>ID_Studente</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mario</td>
+                <td>Rossi</td>
+              </tr>
+              
+              <tr>
+                <td>2</td>
+                <td>Anna</td>
+                <td>Bianchi</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <br>
+
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Classe</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mario</td>
+                <td>Rossi</td>
+                <td>5a</td>
+              </tr>
+              
+              <tr>
+                <td>Anna</td>
+                <td>Bianchi</td>
+                <td>5b</td>
+              </tr>
+            </tbody>
+          </table>
+
+    <h2>Boyce Code</h2>
+    <p>Una tabella T è in forma normale di Boyce-Codd (Boyce-Codd Normal Form, BCNF) se e solo se è in 3NF e, per ogni dipendenza funzionale non banale X → Y (dove X è un 
+        sottoinsieme degli attributi di T e Y è un attributo di T), X è una superchiave per T.
+        La definizione di BCNF è simile a quella di 3NF: la sola differenza è che la condizione della 3NF che consente all’attributo Y di essere primo è in questo caso assente.
+         
+        La forma normale di Boyce-Codd è stata proposta come forma normale più semplice della 3NF, ma in realtà è più restrittiva: ogni tabella in BCNF è anche in 3NF, ma, anche se 
+        in pratica la maggior parte delle tabelle in 3NF è anche in BCNF, questo non è necessariamente sempre vero.
+    </p>
+
+
+    
+      
+</body>
+
+<footer>
+    Questo progetto si chiama Quaderno di informatica e permette di visualizzare i vari esercizi svolti con php e html
+    </footer>
+</html>
