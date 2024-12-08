@@ -27,7 +27,7 @@
 </head>
 <body>
 <nav>
-    <a href="/quaderno_informatica_Bisceglie/All/index.html">Home</a>
+    <a href="../index.html">Home</a>
 </nav>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["numero"])) {

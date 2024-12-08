@@ -6,7 +6,7 @@
     <title>Risultato Login</title>
     <link rel="stylesheet" href="/quaderno_informatica_Bisceglie/All/style.css">
     <nav>
-        <a href="/quaderno_informatica_Bisceglie/All/index.html">Home</a>
+        <a href="../index.html">Home</a>
     </nav>
 </head>
 <body>
