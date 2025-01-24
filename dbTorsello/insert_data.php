@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['_password'];
 
     // Query SQL per inserire i dati nella tabella
-    $sql = "INSERT INTO Utenti (id_utente, nickname, email, _password)
+    $sql = "INSERT INTO Utenti (id_utente, nickname, email, password)
             VALUES ('$id_utente', '$nickname', '$email', '$password')";
 
     // Esegui la query
@@ -50,16 +50,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h2>Inserisci un nuovo utente</h2>
     <!-- Modulo per inserire i dati -->
     <form method="POST" action="">
-        <label for="id_utente">id_utente:</label>
+        <label for="id_utente">Id_utente:</label>
         <input type="number" id="id_utente" name="id_utente" required><br><br>
 
         <label for="nickname"> Nickname:</label>
-        <input type="text" id="Nickname" name="Nickname" required><br><br>
+        <input type="text" id="nickname" name="nickname" required><br><br>
 
-        <label for="email">email:</label>
+        <label for="email">Email:</label>
         <input type="text" id="email" name="email" required><br><br>
 
-        <label for="_password">password:</label>
+        <label for="_password">Password:</label>
         <input type="text" id="_password" name="_password" required><br><br>
 
         <input type="submit" value="Inserisci Utente">

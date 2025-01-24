@@ -26,37 +26,21 @@
         ?>
 
     <form action="index.php" method="post">
-        <input type="submit" name="view_film" value="Visualizza Film">
-        <input type="submit" name="view_attore" value="Visualizza Attori">
-        <input type="submit" name="view_proiezione" value="Visualizza Proiezioni">
-    </form>
+        <input type="submit" name="utenti" value="Visualizza utenti">
+    </form> 
 
    
 
 <?php
-    if (isset($_POST['view_film'])) {
+    if (isset($_POST['utenti'])) {
         $result = $conn->query("SELECT * FROM Utenti");
-        echo "<h2>Film</h2><table border='1'><tr><th>id_utente</th><th>Titolo</th><th>Anno di Produzione</th><th>Regista</th></tr>";
+        echo "<h2>Utenti</h2><table border='1'><tr><th>id_utente</th><th>Nickname</th><th>Email</th><th>Password</th></tr>";
         while ($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row['id_utente'] . "</td><td>" . $row['Titolo'] . "</td><td>" . $row['Anno_Produzione'] . "</td><td>" . $row['Regista'] . "</td></tr>";
-        }
-        echo "</table>";
-    } elseif (isset($_POST['view_attore'])) {
-        $result = $conn->query("SELECT * FROM utenti");
-        echo "<h2>Attori</h2><table border='1'><tr><th>Codice Attore</th><th>Nome</th><th>Cognome</th><th>Nazionalità</th></tr>";
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row['Codice_Attore'] . "</td><td>" . $row['Nome'] . "</td><td>" . $row['Cognome'] . "</td><td>" . $row['Nazionalità'] . "</td></tr>";
-        }
-        echo "</table>";
-    } elseif (isset($_POST['view_proiezione'])) {
-        $result = $conn->query("SELECT * FROM utenti");
-        echo "<h2>Proiezioni</h2><table border='1'><tr><th>Codice Proiezione</th><th>Città</th><th>Sala</th><th>Data</th><th>Ora</th><th>Numero Spettatori</th></tr>";
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row['Codice_Proiezione'] . "</td><td>" . $row['Città'] . "</td><td>" . $row['Sala'] . "</td><td>" . $row['Data'] . "</td><td>" . $row['Ora'] . "</td><td>" . $row['Numero_Spettatori'] . "</td></tr>";
+            echo "<tr><td>" . $row['id_utente'] . "</td><td>" . $row['nickname'] . "</td><td>" . $row['email'] . "</td><td>" . $row['password'] . "</td></tr>";
         }
         echo "</table>";
     }
-
+    
     //$conn->close();
     ?>
 
